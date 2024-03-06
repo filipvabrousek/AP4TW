@@ -1,60 +1,59 @@
-
 <!DOCTYPE html>
-<meta charset="UTF-8">
 
-<input id="from" type="number">
-<select id="unitFrom">
-  <option>Miliampér</option>
-  <option>Ampér</option>
-  <option>Kiloampér</option>
+<input id="value" type="number" placeholder="Enter a value"/>
+<select id="fromUnit">
+    <option value="mA">mA</option>
+    <option value="A">A</option>
 </select>
 
-<input id="to" type="number">
-<select id="unitTo">
-  <option>Miliampér</option>
-  <option>Ampér</option>
-  <option>Kiloampér</option>
+<select id="toUnit">
+    <option value="mA">mA</option>
+    <option value="A">A</option>
 </select>
+
+<button id="convertBtn">Convert</button>
+
+<h2 id="output">Result is </h2>
 
 <script>
-let from = document.querySelector("#unitFrom");
-let to = document.querySelector("#unitTo");
+const input = document.querySelector("#value");
+const fromUnit = document.querySelector("#fromUnit");
+const toUnit = document.querySelector("#toUnit");
+const btn = document.querySelector("#convertBtn");
+const out = document.querySelector("#output");
 
-let fromValue = document.querySelector("#from");
-let toValue = document.querySelector("#to");
 
+const conversion = [
+    {
+        from: "A",
+        to: "mA",
+        ratio: 1000
+    },
+    {
+        from: "mA",
+        to: "A",
+        ratio: 0.001
+    }
+];
 
-// 1 Get unit to convert from
-// and allow it to be accessible
-// from the 2nd event listener
-let fromUnit = "";
-let toUnit = "";
+btn.addEventListener("click", () => {
 
-from.addEventListener("change", () => {
-  console.log("Converting from: " + from.value);
-  fromUnit = from.value;
+    if (input.value.length === 0 
+    || (fromUnit.value === toUnit.value)){
+        alert("Please enter some data and select different units.");
+        return;
+    }
+
+    console.log(input.value);
+    console.log(fromUnit.value);
+    console.log(toUnit.value);
+
+    let to = toUnit.value;
+    let from = fromUnit.value;
+
+    let ratio = conversion.filter(el => el.from === from && el.to === to)[0];
+    let result = input.value * ratio.ratio;
+
+    out.innerText = `Result: ${result} ${toUnit.value}`;
 });
-
-to.addEventListener("change", () => {
-  console.log("Converting to: " + to.value);
-  toUnit = to.value;
-
-  if (fromUnit === "Ampér" && toUnit === "Kiloampér"){
-  // divide by 1000
-    console.log(fromValue);
-    let result = fromValue.value / 1000;
-    console.warn(result);
-    toValue.value = result;
-  }
-});
-
-
-
 </script>
-
-
-
-
-
-
-
