@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<input id="from" type="number">
+<select id="unitFrom">
+  <option>Miliampér</option>
+  <option>Ampér</option>
+  <option>Kiloampér</option>
+</select>
+
+<input id="to" type="number">
+<select id="unitTo">
+  <option>Miliampér</option>
+  <option>Ampér</option>
+  <option>Kiloampér</option>
+</select>
+
+<script>
+let from = document.querySelector("#unitFrom");
+let to = document.querySelector("#unitTo");
+
+let fromValue = document.querySelector("#from");
+let toValue = document.querySelector("#to");
+
+
+// 1 Get unit to convert from
+// and allow it to be accessible
+// from the 2nd event listener
+let fromUnit = "";
+let toUnit = "";
+
+from.addEventListener("change", () => {
+  console.log("Converting from: " + from.value);
+  fromUnit = from.value;
+});
+
+to.addEventListener("change", () => {
+  console.log("Converting to: " + to.value);
+  toUnit = to.value;
+
+  if (fromUnit === "Ampér" && toUnit === "Kiloampér"){
+  // divide by 1000
+    console.log(fromValue);
+    let result = fromValue.value / 1000;
+    console.warn(result);
+    toValue.value = result;
+  }
+});
+
+
+
+</script>
+
+
+
+
+
+
+
