@@ -37,6 +37,13 @@ const conversion = [
 ];
 
 btn.addEventListener("click", () => {
+
+    if (input.value.length === 0 
+    || (fromUnit.value === toUnit.value)){
+        alert("Please enter some data and select different units.");
+        return;
+    }
+
     console.log(input.value);
     console.log(fromUnit.value);
     console.log(toUnit.value);
