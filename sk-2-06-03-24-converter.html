@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<input id="value" type="number" placeholder="Enter a value"/>
+<select id="fromUnit">
+    <option value="mA">mA</option>
+    <option value="A">A</option>
+</select>
+
+<select id="toUnit">
+    <option value="mA">mA</option>
+    <option value="A">A</option>
+</select>
+
+<button id="convertBtn">Convert</button>
+
+<h2 id="output">Result is </h2>
+
+<script>
+const input = document.querySelector("#value");
+const fromUnit = document.querySelector("#fromUnit");
+const toUnit = document.querySelector("#toUnit");
+const btn = document.querySelector("#convertBtn");
+const out = document.querySelector("#output");
+
+
+const conversion = [
+    {
+        from: "A",
+        to: "mA",
+        ratio: 1000
+    },
+    {
+        from: "mA",
+        to: "A",
+        ratio: 0.001
+    }
+];
+
+btn.addEventListener("click", () => {
+    console.log(input.value);
+    console.log(fromUnit.value);
+    console.log(toUnit.value);
+
+    let to = toUnit.value;
+    let from = fromUnit.value;
+
+    let ratio = conversion.filter(el => el.from === from && el.to === to)[0];
+    let result = input.value * ratio.ratio;
+
+    out.innerText = `Result: ${result} ${toUnit.value}`;
+});
+</script>
