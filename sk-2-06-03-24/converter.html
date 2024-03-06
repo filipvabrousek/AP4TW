@@ -45,11 +45,168 @@ const conversion = [
     }
 ];
 
+/*
+let animation = element.animate([{ opacity: 0 }, { opacity: 1 }], {
+    duration: 300,
+    easing: "linear",
+  });
+*/
+
+
+if ( window.localStorage.getItem("isShowna") !== null){
+// btn.style.display = "none";
+document.querySelector("#stack").style.display = "none";
+document.querySelector("#output").innerText = "The form is gone forever."
+} 
+
+
+let attempts = 0;
+let formOpacity = 1;
+
 btn.addEventListener("click", () => {
 
     if (input.value.length === 0 
     || (fromUnit.value === toUnit.value)){
-        alert("Please enter some data and select different units.");
+        // Shake the field
+        attempts++;
+        formOpacity -= 0.07;
+        
+        console.log(attempts);
+        let stack = document.querySelector("#stack");
+        stack.style.opacity = formOpacity;
+        if (formOpacity < 0.1){
+            window.localStorage.setItem("isShowna", false);
+            document.querySelector("#stack").style.display = "none";
+            document.querySelector("#output").innerText = "The form is gone forever."
+        }
+
+        input.animate([
+            {
+                transform: "translateX(0px)"
+            },
+            {
+                transform: "translateX(-120px)"
+            },
+            {
+                transform: "translateX(60px)"
+            },
+            {
+                transform: "translateX(-70px)"
+            },
+
+            {
+                transform: "translateX(40px)"
+            },
+            {
+                transform: "translateX(-40px)"
+            },
+
+            {
+                transform: "translateX(20px)"
+            },
+            {
+                transform: "translateX(-20px)"
+            },
+
+            {
+                transform: "translateX(10px)"
+            },
+            {
+                transform: "translateX(-10px)"
+            },
+            {
+                transform: "translateX(0px)"
+            }
+        ], {
+            duration: 700,
+            easing: "linear"
+        });
+
+        fromUnit.animate([
+            {
+                transform: "translateX(0px)"
+            },
+            {
+                transform: "translateX(60px)"
+            },
+            {
+                transform: "translateX(-60px)"
+            },
+            {
+                transform: "translateX(70px)"
+            },
+
+            {
+                transform: "translateX(-40px)"
+            },
+            {
+                transform: "translateX(40px)"
+            },
+
+            {
+                transform: "translateX(-20px)"
+            },
+            {
+                transform: "translateX(20px)"
+            },
+
+            {
+                transform: "translateX(-10px)"
+            },
+            {
+                transform: "translateX(10px)"
+            },
+            {
+                transform: "translateX(0px)"
+            }
+        ], {
+            duration: 700,
+            easing: "linear"
+        });
+
+        toUnit.animate([
+            {
+                transform: "translateX(0px)"
+            },
+            {
+                transform: "translateX(-120px)"
+            },
+            {
+                transform: "translateX(60px)"
+            },
+            {
+                transform: "translateX(-70px)"
+            },
+
+            {
+                transform: "translateX(40px)"
+            },
+            {
+                transform: "translateX(-40px)"
+            },
+
+            {
+                transform: "translateX(20px)"
+            },
+            {
+                transform: "translateX(-20px)"
+            },
+
+            {
+                transform: "translateX(10px)"
+            },
+            {
+                transform: "translateX(-10px)"
+            },
+            {
+                transform: "translateX(0px)"
+            }
+        ], {
+            duration: 700,
+            easing: "linear"
+        })
+
+       // alert("Please enter some data and select different units.");
         return;
     }
 
@@ -65,6 +222,26 @@ btn.addEventListener("click", () => {
 
     out.innerText = `Result: ${result} ${toUnit.value}`;
 });
+
+/*
+setTimeout(() => {
+    if (input.value.length === 0){
+        alert("Enter something");
+    }
+}, 10 * 1000);
+*/
+
+
+setInterval(() => {
+    if (input.value.length === 0){
+       // alert("There has to be something at all times.");
+        input.style.border = "1px solid red"
+    } 
+    else {
+        input.style.border = "3px solid #1abc9c"
+    }
+}, 3000);
+
 </script>
 
 <style>
@@ -118,4 +295,6 @@ btn.addEventListener("click", () => {
         margin-top: 1rem;
         text-align: center;
     }
+
+
 </style>
