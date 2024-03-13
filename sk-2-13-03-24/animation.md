@@ -1,3 +1,4 @@
+```html
 <div id="group">
 
 
@@ -12,9 +13,12 @@
 
 
 
+```
 
 
-<style>
+```css
+
+
 
     #group {
         display: grid;
@@ -123,5 +127,5 @@
         }
     }*/
 
+```
 
-</style>
