@@ -1,0 +1,202 @@
+<div id="container">
+
+<input 
+id="value"
+  min="0" 
+  max="1000"
+  type="number">
+
+  <!--<h2 style="color: red">Hello</h2>--->
+
+<select id="fromUnit">
+    <option value="mA">mA</option>
+    <option value="A">A</option>
+    <option value="kA">kA</option>
+</select>
+
+<select id="toUnit">
+    <option value="mA">mA</option>
+    <option value="A">A</option>
+    <option value="kA">kA</option>
+</select>
+
+<button id="convertBtn">Convert</button>
+
+<h3 id="output"></h3>
+</div>
+
+<script>
+
+
+ 
+
+    const input = document.querySelector("#value");
+    const fromUnit = document.querySelector("#fromUnit");
+    const toUnit = document.querySelector("#toUnit");
+    const convertBtn = document.querySelector("#convertBtn");
+    const output = document.querySelector("#output");
+
+    if (window.localStorage.getItem("gone") !== null){
+       
+        output.innerHTML = "The form is gone forever."
+        let els = [input, fromUnit, toUnit, convertBtn]
+        els.forEach(el => el.style.opacity = 0);
+
+   
+    }
+
+    const conversion = [
+        {
+            from: "A",
+            to: "mA",
+            ratio: 1000
+        },
+
+        {
+            from: "mA",
+            to: "A",
+            ratio: 0.001
+        },
+
+        {
+            from: "kA",
+            to: "A",
+            ratio: 1000
+        },
+
+        {
+            from: "A",
+            to: "kA",
+            ratio: 0.001
+        }
+    ];
+
+    let opacity = 1;
+
+    convertBtn.addEventListener("click", () => {
+       
+      
+       
+       
+        const to = toUnit.value;
+        const from = fromUnit.value;
+        const value = input.value;
+
+        if (value.length === 0 || to === from){
+
+            opacity -= 0.03;
+            [input, fromUnit, toUnit, convertBtn]
+            .forEach(el => el.style.opacity = opacity);
+
+            if (opacity < 0.07){
+                output.innerHTML = "The form is gone forever."
+                window.localStorage.setItem("gone", "gone");
+
+            }
+
+
+            input.animate([
+                {transform: "translateX(0px)"},
+                {transform: "translateX(100px)"},
+                {transform: "translateX(-40px)"},
+                {transform: "translateX(90px)"},
+                {transform: "translateX(-30px)"},
+                {transform: "translateX(90px)"},
+                {transform: "translateX(-10px)"},
+                {transform: "translateX(30px)"},
+                {transform: "translateX(20px)"},
+                {transform: "translateX(0px)"},
+            ], {
+               duration: 700,
+               easing: "linear" 
+            });
+
+            toUnit.animate([
+                {transform: "translateX(0px)"},
+                {transform: "translateX(120px)"},
+                {transform: "translateX(-60px)"},
+                {transform: "translateX(70px)"},
+                {transform: "translateX(-40px)"},
+                {transform: "translateX(40px)"},
+                {transform: "translateX(-20px)"},
+                {transform: "translateX(20px)"},
+                {transform: "translateX(-10px)"},
+                {transform: "translateX(0px)"},
+            ], {
+               duration: 700,
+               easing: "linear" 
+            });
+
+            fromUnit.animate([
+                {transform: "translateX(0px)"},
+                {transform: "translateX(-120px)"},
+                {transform: "translateX(60px)"},
+                {transform: "translateX(-70px)"},
+                {transform: "translateX(40px)"},
+                {transform: "translateX(-40px)"},
+                {transform: "translateX(20px)"},
+                {transform: "translateX(-20px)"},
+                {transform: "translateX(10px)"},
+                {transform: "translateX(0px)"},
+            ], {
+               duration: 700,
+               easing: "linear" 
+            });
+
+            return;
+        }
+
+
+
+        let ratio = conversion.filter(el => el.from === from && el.to === to)[0];
+        console.log(ratio);
+// A => mA =>
+
+        const result = value * ratio.ratio;
+        // "Result " + result 
+        output.innerHTML = `Result is ${result} ${ratio.to}` ;
+
+        console.log(from, to, value);
+    })
+
+</script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    margin: 0.4rem;
+}
+
+input {
+    margin: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 0.4rem;
+    border: 1px solid gray;
+}
+
+select {
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+}
+
+button {
+    padding: 0.3rem;
+    border-radius: 0.4rem;
+    border: none;
+    background: #1abc9c;
+    color: white;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+
+</style>
