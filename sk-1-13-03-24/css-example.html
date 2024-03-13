@@ -1,0 +1,39 @@
+<div>
+
+</div>
+
+<div id="c">
+A
+</div>
+
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(green, blue);
+        background: radial-gradient(green, blue);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 60%);
+  }
+
+div {
+    transform: translateX(30px) rotate(45deg);
+    
+  }
+
+
+  #c {
+    transform: perspective(300px);
+    transform: translate3d(20px, 40px, -90px);
+  }
+
+
+
+  #c {
+    transform: matrix3d(
+  -0.6,       1.34788, 0,        0,
+  -2.34788,  -0.6,     0,        0,
+   0,         0,       1,        0,
+   0,         0,      10,        1);
+  }
+
+</style>
