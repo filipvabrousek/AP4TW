@@ -1,0 +1,24 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
+<div id="app">
+
+    <button type="submit" @click="updateCount">
+        Increment Counter: {{ count }}
+    </button>
+
+</div>
+
+<script>
+new Vue({
+el: '#app',
+data: {
+    count: 0
+},
+methods: {
+    updateCount: function() {
+        this.count += 1;
+    }
+}
+
+});
+
+</script>
