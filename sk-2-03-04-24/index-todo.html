@@ -1,0 +1,51 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+<h1>To-do list</h1>
+
+<input
+ type="text"
+ v-model="newTask"
+ @keyup.enter = "addTask">
+
+ <button @click="addTask">Add task</button>
+
+ <ul>
+    <li v-for="task in tasks">
+        {{ task.name}}
+    </li>
+ </ul>
+
+</div>
+
+<script>
+const {createApp, ref} = Vue;
+
+createApp({
+    setup() {
+        const newTask = ref("");
+        let fetched = JSON.parse(localStorage.getItem("data")) ?? [];
+        const tasks = ref(fetched);
+
+        function addTask() {
+            tasks.value.push({
+                name: newTask.value
+            });
+           
+            // Fetch array and save the task
+            let fetchedArr = JSON.parse(localStorage.getItem("data")) ?? [];
+            fetchedArr.push({ name: newTask.value });
+
+            let stringifiedData = JSON.stringify(fetchedArr);
+            window.localStorage.setItem("data", stringifiedData);
+            newTask.value = "";
+        }
+
+        return { newTask, tasks, addTask }
+    }
+
+
+
+
+}).mount("#app");
+</script>

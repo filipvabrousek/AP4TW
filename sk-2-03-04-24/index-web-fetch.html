@@ -1,0 +1,46 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+    <h1>Posts</h1>
+    <div v-if="loading">
+        Loading
+    </div>
+
+    <div v-else>
+        <li v-for="post in posts">
+            {{post.title}}
+        </li>
+    </div>
+
+
+    </div>
+
+
+
+<script>
+     // https://jsonplaceholder.typicode.com/posts
+const {createApp, ref} = Vue;
+
+createApp({
+    data(){
+        return {
+            loading: true,
+            posts: []
+        };
+    },
+
+    async mounted(){ // called automatically
+        try {
+            const url = "https://jsonplaceholder.typicode.com/posts";
+            const response = await fetch(url);
+            const data = await response.json();
+            this.posts = data;
+        } catch {
+            console.error("Error fetching response");
+        } finally {
+            this.loading = false;
+        }
+
+    }
+}).mount("#app");
+</script>
