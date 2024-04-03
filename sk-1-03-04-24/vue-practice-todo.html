@@ -1,0 +1,81 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!----
+<div id="app">
+<h1>Tasks</h1>
+
+<input type="text" 
+v-model="newTask" 
+@keyup.enter="addTask">
+
+<button @click="addTask">Add task</button>
+<ul>
+    <li v-for="(task, index) in tasks" 
+        :key="index">{{ task.title}}</li>
+</ul>
+</div>
+--->
+
+
+<div id="app">
+    <h1>To-Do List</h1>
+    
+    <input 
+    type="text" 
+    v-model="newTask" 
+    @keyup.enter="addTask">
+    <button @click="addTask">Add Task</button>
+    
+    <ul>
+      <li v-for="(task, index) in tasks" 
+      :key="index">{{ task.name }}</li>
+    </ul>
+  </div>
+
+<script>
+  //  const {createApp, ref} = Vue;
+/*
+const {createApp, ref} = Vue;
+
+    createApp({
+        setup(){
+            const newTask = ref("");
+            const tasks = ref([
+                {title: "Task 1"},
+                {title: "Task 2"},
+                {title: "Task 3"},
+            ]);
+
+            function addTask(){
+                tasks.value.push({
+                    title: newTask
+                })
+
+               // newTask.value = "";
+            }
+
+            return {newTask, tasks, addTask}
+            //alert("I am called.");
+        }
+    }).mount("#app")*/
+
+    const {createApp, ref} = Vue;
+  
+    createApp({
+    setup() {
+      const newTask = ref('');
+      const tasks = ref([
+        { name: 'Example Task 1' },
+        { name: 'Example Task 2' }
+      ]);
+
+      function addTask() {
+          tasks.value.push({ 
+            name: newTask.value
+            });
+          newTask.value = '';
+      }
+
+      return { newTask, tasks, addTask };
+    }
+  }).mount('#app');
+</script>
