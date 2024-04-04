@@ -24,6 +24,11 @@ DB::table("Users")->insert([ // already created at db
 $users = DB::table("Users")->get();
 return view("users", ["users" => $users]);
 });
+
+Route::get("/users", function(){
+    $users = DB::table("Users")->get();
+    return view("users", ["users" => $users]);
+});
 ```
 
 hello.blade.php
