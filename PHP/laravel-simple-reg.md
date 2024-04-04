@@ -15,7 +15,9 @@ Route::post("/submit", function(Illuminate\Http\Request $request){
 $name = $request->input('name');
 
 DB::table("Users")->insert([ // already created at db
-    "name" => $name, "email" => $name, "password" => $name
+    "name" => $name,
+    "email" => $name,
+    "password" => $name
 ]);
 
 $users = DB::table("Users")->get();
