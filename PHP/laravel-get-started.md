@@ -5,6 +5,7 @@ https://herd.laravel.com/
 composer create-project laravel/laravel:^11.0 Room
 cd
 cd room
+php artisan serve
 ```
 
 Room/routes/web.php
