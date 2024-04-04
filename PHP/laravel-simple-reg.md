@@ -11,6 +11,7 @@ Route::get("/", function(){
    return view("hello");
 });
 
+
 Route::post("/submit", function(Illuminate\Http\Request $request){
 $name = $request->input('name');
 
