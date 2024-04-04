@@ -6,7 +6,6 @@ resources/views/web.php
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Database\Schema\Blueprint;
 
 Route::get("/", function(){ 
    return view("hello");
