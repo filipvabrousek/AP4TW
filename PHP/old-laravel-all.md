@@ -102,7 +102,25 @@ resources/views/races.blade.php
 
 
 
+## GlobalController
+```php
+/*
+class GlobalController extends Controller {
+    public function index(){
+        $users = DB::table('Users')->get();
+        return view('users', ['users' => $users]);
+    }
 
+    public function save($name){
+        DB::table("Users")->insert([ // already created at db
+            "name" => $name,
+            "email" => $name,
+            "password" => $name
+        ]);
+    }
+}*/
+
+```
 
 
 
