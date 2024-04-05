@@ -52,28 +52,3 @@ users.php
 @endforeach
 ```
 
-
-With class
-
-```php
-<?php
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-
-class UserController extends Controller
-{
-    public function index()
-    {
-        $users = DB::table('Users')->get();
-        return view('users', ['users' => $users]);
-    }
-}
-
-// the same code for /submit, etc...
-
-Route::get("/users", 'App\Http\Controllers\UserController@index');
-
-
-
