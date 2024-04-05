@@ -1,4 +1,4 @@
-```php
+
 <?php
 
 namespace App\Http\Controllers;
@@ -43,4 +43,4 @@ Route::get("/users", function(){
     $users = DB::table("Users")->get();
     return view("users", ["users" => $users]);
 });
-```
+
