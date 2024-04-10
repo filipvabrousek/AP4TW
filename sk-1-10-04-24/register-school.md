@@ -11,28 +11,40 @@
 
 ```php
 <?php
-// Connect to the server
+
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "users";
+$dbname = "Users";
 
+$conn = new mysqli($servername, $username, $password, $dbname);
+/* WINDOWS: 
 $conn = new mysqli($servername, $username, $password, $dbname, 3307);
+*/
+if (isset($_POST["username"]) &&
+ !empty($_POST["username"])){
+  $name = $_POST["username"];
 
-// Check if name is set 
-if (isset($_POST["name"])){
-$name = $_POST["name"];
-$sql = "INSERT INTO users (name, password) VALUES ('$name', '$name')";
-$conn->query($sql);
-}
+  $sql = "INSERT INTO Users.users VALUES('$name')";
+  // WINDOWS: $sql = "INSERT INTO Users.Users(name, password) VALUES('$name', '$name')";
+  $conn->query($sql);
 
-$sql = "SELECT * FROM Users.Users";
-$result = $conn->query($sql);
+  $sql = "SELECT * FROM Users.users";
+  $result = $conn->query($sql);
 
-while ($row = mysqli_fetch_assoc($result)){
-  echo $row["name"];
-  echo "</br>";
-}
+  while ($row = mysqli_fetch_assoc($result)){
+    echo $row["name"];
+    echo "</br>";
+  }
+
+
+
+
+
+
+ } else {
+  echo "No username received";
+ }
 
 
 ?>
