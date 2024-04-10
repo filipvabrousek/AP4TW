@@ -15,14 +15,14 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "Users";
+$dbname = "users";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, 3307);
 
 // Check if name is set 
 if (isset($_POST["name"])){
 $name = $_POST["name"];
-$sql = "INSERT INTO Users.Users VALUES ('$name')";
+$sql = "INSERT INTO users (name, password) VALUES ('$name', '$name')";
 $conn->query($sql);
 }
 
