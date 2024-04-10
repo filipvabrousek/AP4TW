@@ -1,4 +1,4 @@
-## Register mamp
+## Register working on school PC
 
 ```html
 <form action="index.php" method="POST">
