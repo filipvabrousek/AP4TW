@@ -1,5 +1,5 @@
 ## Register working on school PC
-
+* musí být vytvořena tabulka Users
 ```html
 <form action="index.php" method="POST">
 <input type="text" name="name">
