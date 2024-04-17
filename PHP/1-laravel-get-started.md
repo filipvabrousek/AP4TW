@@ -2,8 +2,6 @@
 https://herd.laravel.com/  
 
 ```sh
-mkdir proj
-cd proj
 composer create-project laravel/laravel:^11.0 Room
 cd room
 php artisan serve
