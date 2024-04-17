@@ -1,6 +1,6 @@
 # Registration with user search
 
-web.php
+moor/routes/web.php
 ```php
 <?php
 
@@ -69,7 +69,7 @@ return view("users", ["users" => $users]);
 });*/
 ```
 
-hello.blade.php
+moor/resources/views/hello.blade.php
 ```html
 <h1>Hello</h1>
 
@@ -80,7 +80,7 @@ hello.blade.php
 </form>
 ```
 
-users.blade.php
+moor/resources/views/users.blade.php
 ```html
 <h1>Users</h1>
 
