@@ -1,3 +1,5 @@
+This exam has 10 second limit.
+
 ```php
 Route::get('/', function () {
     $timer = "unique"; // NEEDS TO MATCH WITH THE STRING IN SUBMIT
