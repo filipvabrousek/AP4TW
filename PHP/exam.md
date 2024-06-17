@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 ```php
 Route::post('/submit', function (Request $request) {
-    $timer = "uniqueppp";
+    $timer = "unique";
     $result = $request->get('answer');
     $isCorrect = $result == 'b';
 
