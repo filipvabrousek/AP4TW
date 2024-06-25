@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 ```
 
-## exam.blade.php
+
 ```php
 Route::post('/submit', function (Request $request) {
     $timer = "unique";
@@ -43,7 +43,7 @@ Route::post('/submit', function (Request $request) {
 ```
 
 
-
+## exam.blade.php
 ```html
 <h1>Hello, welcome to our final exam</h1>
 
