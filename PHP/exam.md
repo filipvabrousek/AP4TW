@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 ```
 
+## exam.blade.php
 ```php
 Route::post('/submit', function (Request $request) {
     $timer = "unique";
