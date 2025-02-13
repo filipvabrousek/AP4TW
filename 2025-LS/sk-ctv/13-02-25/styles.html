@@ -1,0 +1,44 @@
+<h1>This is heading</h1>
+<h1>This is another heading</h1>
+
+<div class="specific">
+    <h1>This is another heading</h1>
+    <p class="orange">This has CLASS orange</p>
+</div>
+
+<p id="one">This has ID one</p>
+<!---multiple classes OK, HTML: class="className" CSS: .className -->
+<!----There should be just one ID HTML: id="MYID" CSS: #MYID-->
+<p>This is text</p>
+<style>
+
+h1 { /* selector */
+    color: green; /*key-value*/
+    font-family: Arial;
+}
+
+/* paragraph should be orange */
+.orange {
+    color: orange; /*named color, #hex, rgba, hsla*/
+   /* color: #1abc9c;*/
+}
+
+#one {
+    color: green;
+    border: 3px dotted green; /*solid dotted dashed*/
+}
+
+/*
+<div class="specific">
+    <h1>This is another heading</h1>
+    <p class="orange">This has CLASS orange</p>
+</div>
+*/
+
+.specific {
+    border: 1px solid orange;
+}
+
+
+
+</style>
