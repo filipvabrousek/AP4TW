@@ -104,6 +104,13 @@ echo strlen($name);
 
 
 
+/*
+1) PHP form
+2) Laravel registration/login form
+3) Laravel post network anonymous (better) 
+
+*/
+
 
 
 
