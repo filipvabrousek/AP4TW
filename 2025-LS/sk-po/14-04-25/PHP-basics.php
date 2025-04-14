@@ -15,6 +15,9 @@ if ($age > 21){
 
 echo "\n";
 
+
+
+
 function greet($name){
 	echo "Hello $name";
 }
@@ -65,6 +68,10 @@ echo "\n";
 echo max(1, 2, 3); // 3
 
 
+
+
+
+
 echo "\n";
 
 // Usage in forms
@@ -88,8 +95,12 @@ echo "\n";
 echo round(3.141592, 3);
 // $name = readline("Enter your name");
 // echo "Hello $name";
+echo "\n";
 
 
+$name = "hiowehfiweohfeiowfhweiofhwioehfeiwohfwiofhwoifhweiofhewifewhoif";
+echo "Length \n";
+echo strlen($name);
 
 
 
