@@ -1,0 +1,52 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<div class="effect">
+</div>
+
+<div class="gradient"></div>
+
+
+<style>
+    .effect {
+        width: 300px;
+        height: 300px;
+        background: orange;
+        border-radius: 100%;
+        transform: translate(21px, 100px);
+        transform: scale(0.6);
+        transform: rotateY(45deg);
+        transform: skewX(45deg);
+        transform: rotate3d(1,1,1, 45deg);
+        transform: matrix(1, 2, 3, 0, 0, 0);
+        transform: matrix3d(
+  0.5,        0,      -0.866025, 0,
+  0.595877,   1.2,    -1.03209,  0,
+  0.866025,   0,       0.5,      0,
+ 25.9808,     0,      15,        1);
+        /*rotatetion vector x, rot vect y, reot vect z, rotation angle */
+/*transform: perspective(15px);**/
+
+    }
+
+
+    .gradient {
+        width:  200;
+        height: 200;
+        background-color: greenyellow;
+        background: linear-gradient(to top, green, yellow, orange);
+        background: radial-gradient(green, yellow, blue);
+        box-shadow: 30px 30px 30px #000;
+    }
+
+    .gradient:hover {
+        border: 3px solid orange;
+        transition: all 0.6s;
+        width: 300px;
+    }
+
+
+
+</style>
