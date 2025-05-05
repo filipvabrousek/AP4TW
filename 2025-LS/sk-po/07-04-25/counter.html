@@ -1,0 +1,16 @@
+<h1>Counter</h1>
+
+<h3>Counter is</h3>
+
+<button id="btn">Increase counter</button>
+
+<script>
+    let counter = 0;
+    let btn = document.querySelector("button");
+    let h3 = document.querySelector("h3");
+    btn.addEventListener("click", () => {
+        counter += 1;
+        h3.innerText = "Counter is: " + counter;
+
+    })
+</script>

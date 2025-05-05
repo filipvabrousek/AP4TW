@@ -1,0 +1,23 @@
+<h1>Vue</h1>
+
+<div id="app">
+<h1>Count: {{ count }} </h1>
+<button @click="increment">Increment</button>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.45/dist/vue.global.js"></script> <!-- Include Vue 3 via CDN -->
+
+<script>
+      const { createApp, ref } = Vue;
+
+
+      createApp({
+        setup(){
+            //  let counter = 0;
+            const count = ref(0);
+            const increment = () => count.value++;
+            return {count, increment};
+        }
+      }).mount("#app");
+</script>
