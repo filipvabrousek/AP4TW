@@ -1,0 +1,113 @@
+<h1>Area of the circle</h1>
+
+<input type="number" placeholder="Please enter radius">
+
+<button>Calculate</button>
+
+<h3>Result</h3>
+<script>
+
+  // S = pi * r * r;
+  // Math.pow(r, 2)
+
+  let input = document.querySelector("input");
+  let btn = document.querySelector("button");
+  let result = document.querySelector("h3");
+
+
+
+  let opacity = 1.0;
+
+
+  btn.addEventListener("click", () => {
+
+    if (input.value.length === 0 || input.value <= 0) {
+      console.log("Wrong!!!");
+
+      btn.animate([
+        { transform: 'translateY(0px)' },
+        { transform: 'translateY(-10px)' },
+        { transform: 'translateY(10px)' },
+        { transform: 'translateY(-10px)' },
+        { transform: 'translateY(10px)' },
+        { transform: 'translateY(0px)' }
+      ], {
+        duration: 500,  // total duration of the animation in milliseconds
+        iterations: 1   // number of times the animation will repeat
+      });
+
+      document.body.animate([
+        { transform: 'translateX(0px)' },
+        { transform: 'translateX(-10px)' },
+        { transform: 'translateX(10px)' },
+        { transform: 'translateX(-10px)' },
+        { transform: 'translateX(10px)' },
+        { transform: 'translateX(0px)' }
+      ], {
+        duration: 500,  // total duration of the animation in milliseconds
+        iterations: 1   // number of times the animation will repeat
+      });
+
+
+      opacity -= 0.07;
+      console.log(opacity);
+
+      input.style.opacity = opacity;
+
+      if (opacity <= 0) {
+        input.disabled = "disabled";
+        btn.style.backgroundColor = "red";
+        btn.textContent = "Blocked";
+        document.body.style.background = "red";
+      }
+      return;
+    }
+
+    console.log(input.value);
+    let r = input.value;
+    let value = Math.PI * r * r;
+    result.innerText = `Result is ${value.toPrecision(6)}`;
+
+  });
+
+
+
+
+
+</script>
+
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h1 {
+    margin: 1rem;
+  }
+
+
+  input,
+  button {
+    padding: 0.6rem;
+    margin: .6rem;
+  }
+
+  input {
+    border-radius: 0.4rem;
+    border: 3px solid gray;
+  }
+
+  h3 {
+    margin-top: 3rem;
+  }
+
+  button {
+    background: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+  }
+</style>

@@ -1,0 +1,170 @@
+<h1>Hello I am Eda!</h1>
+
+<button id="mybtn">Click me</button>
+<script>
+// change to Karel
+
+let h1 = document.querySelector("h1");
+h1.textContent = "Hello Karel";
+h1.innerHTML += "<h2>Hello</h2>";
+
+let btn = document.querySelector("#mybtn");
+btn.addEventListener("click", () => {
+  alert("Clicked");
+});
+
+h1.style.color = "green";
+h1.style.fontFamily = "Verdana";
+
+
+
+
+
+setInterval(() => {
+  let date = new Date();
+  h1.textContent = date;
+}, 500);
+
+
+/*
+<h1>
+  
+  Hello Karel
+  <h2>Hello</h2>
+  
+</h1>
+
+*/
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+console.log("Hello World!");
+//  alert("Hello");
+
+/*
+multiline comment
+*/
+
+let value = 20;
+value = 30;
+console.log(value); 
+
+const pi = 3.14;
+// pi = 6;/// => ERROR: Assignment to constant variable.
+
+
+let text = "Hello";
+let isOpen = true;
+
+if (isOpen){
+  console.log("is open");
+} else {
+  console.log("is closed");
+}
+
+for (var i = 0; i < 10; i++){
+  console.log("I is " + i);
+}
+
+// while, repeat-while
+
+let object = {
+  name: "Filip",
+  graduation: 2024
+}
+
+console.log(object.name);
+
+// arrays
+let values = [ 2, 4, 6];
+values[0] = 3;
+
+console.log(values);
+console.log("PUSH");
+values.push(8); // 3,4,6,8
+
+console.log(values);
+
+
+values.pop();
+
+console.log("POP");
+console.log(values); // 3,4,6 rempve last value
+
+console.log("UNSHIFT");
+values.unshift(1); // 1,3,4,6 push to front
+
+console.log(values);
+values.shift(); // remove 1st value
+
+
+console.log(values);
+
+
+
+
+
+// functions
+
+
+
+function S(a,b){
+  return a * b;
+}
+
+let s = S(4,2);
+console.log(s); // 8
+
+
+
+class Person {
+  constructor(name, graduation){
+    this.name = name;
+    this.graduation = graduation;
+  }
+
+  greet() {
+  return `Congrats ${this.name}`;
+}
+
+}
+
+let p = new Person("Eda", 2025);
+let greeting = p.greet();
+console.log(greeting);
+
+
+
+
+
+
+</script>
