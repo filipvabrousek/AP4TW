@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Scroll Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200vh; /* Height to allow scrolling */
+            overflow-y: scroll;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="animationCanvas"></canvas>
+
+    <script>
+        // Get the canvas element and its context
+        const canvas = document.getElementById('animationCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Resize the canvas to full screen width and height
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Array of image URLs (replace with your actual image paths)
+        const images = [
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0000.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0001.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0002.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0003.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0004.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0005.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0006.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0007.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0008.jpg',
+    'https://www.apple.com/105/media/us/mac-studio/2025/b1663575-017d-42db-8245-227e85212596/anim/hero-2/large/0009.jpg'
+];
+        // Load the images
+        const loadedImages = [];
+        let imagesLoaded = 0;
+        
+        images.forEach((src, index) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                loadedImages[index] = img;
+                imagesLoaded++;
+                if (imagesLoaded === images.length) {
+                    drawImageOnScroll(); // Start drawing when all images are loaded
+                }
+            };
+        });
+
+        // Function to draw the image based on scroll position
+        function drawImageOnScroll() {
+            window.addEventListener('scroll', () => {
+                // Calculate the percentage of scrolling
+                const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+
+                // Calculate which image to show based on scroll position
+                const imageIndex = Math.floor(scrollPercentage * (loadedImages.length - 1));
+                const img = loadedImages[imageIndex];
+
+                // Clear the canvas and draw the selected image
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height); // Adjust image size if needed
+            });
+        }
+    </script>
+</body>
+</html>

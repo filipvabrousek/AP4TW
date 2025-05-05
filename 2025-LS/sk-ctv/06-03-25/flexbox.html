@@ -1,0 +1,101 @@
+<div id="grid">
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+        <h1>1 Hello</h1>
+      
+    </div>
+
+    <div class="card">
+      
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+        <h1>2 Hello</h1>
+    </div>
+
+    <div class="card">
+        
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+        <h1>3 Hello</h1>
+    </div>
+
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+        <h1>4 Hello</h1>
+        
+    </div>
+
+
+    <div class="card">
+        <h1>5 Hello</h1>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+    </div>
+
+
+    <div class="card">
+        <h1>6 Hello</h1>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+    </div>
+
+
+
+    <div class="card">
+        <h1>7 Hello</h1>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+    </div>
+
+
+    <div class="card">
+        <h1>8 Hello</h1>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D"/>
+    </div>
+
+
+
+
+
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       justify-content: flex-end;
+        width: 400px;
+        height: 400px;
+       
+        margin: 0.3rem;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .card img {
+        width: 800px;
+        z-index: 2000;
+        /*justify-self: flex-start;*/
+        /*lower z-index => further from you*/
+    }
+
+    .card h1 {
+        z-index: 4000;
+        color: rgb(255, 255, 255);
+        align-self: flex-start;
+        position: absolute;
+     margin: 1rem;
+        /*closer to you*/
+    }
+</style>
+  
