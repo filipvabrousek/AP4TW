@@ -1,0 +1,79 @@
+<h1>BMI Calculator</h1>
+
+
+<input type="number" id="weight" placeholder="w">
+
+<input type="number" id="height" placeholder="h">
+
+<button>Calculate</button>
+
+<h3>Result</h3>
+<script>
+let weight = document.querySelector("#weight");
+
+let height = document.querySelector("#height");
+
+let btn = document.querySelector("button");
+
+
+let result = document.querySelector("h3");
+
+let opacity = 1.0;
+
+
+btn.addEventListener("click", () => {
+  if (weight.value.length === 0 || height.value.length === 0) {
+   // alert("Wrong parameters");
+    document.body.style.background = "red";
+    opacity -= 0.1;
+    weight.style.opacity = opacity;
+    height.style.opacity = opacity;
+
+
+    if (opacity < 0) {
+      weight.disabled = true;
+      height.disabled = true;
+    }
+    return;
+  } 
+  console.log(weight.value);
+
+    let w = weight.value;
+    let h = height.value;
+    let bmi = w / (h * h);
+    result.innerHTML = bmi;
+    console.log(bmi);
+});
+
+// BMI = weight kg / (h * h) m
+
+
+
+</script>
+
+
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+  input, button, h3 {
+    display: block;
+    margin: 1rem;
+    padding: 0.6rem;
+  }
+
+  button {
+    background: green;
+    border: none;
+    color: white;
+    border-radius: 1rem;
+  }
+
+
+
+
+</style>

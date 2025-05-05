@@ -1,0 +1,95 @@
+<script>
+console.log("Hello world");
+
+let value = 20;
+let name = "Eda";
+
+console.log(name);
+
+const pi = 3.14;
+console.log(pi);
+
+if (value > 20){
+  console.log("Value is bigger than 20");
+} else if (value > 10) {
+  console.log("Value is bigger than 10");
+} else {
+  console.log("Value is smaller than 20");
+}
+
+
+
+function S(a, b){
+  console.log("Computing")
+  return a * b;
+}
+
+
+let area = S(2,3);
+console.log(area);
+
+
+
+
+let myconst = 4;
+console.log("My const is " + myconst);
+console.log(`My const is ${myconst}`);
+
+
+let me = {
+  name: "Filip",
+  id: 546766
+}
+
+console.log(me);
+console.log(me.id);
+
+
+
+class Person {
+  constructor(name, id){
+    this.name = name;
+    this.id = id;
+  }
+
+  greet(){
+    return "Hello " + this.name;
+  }
+}
+
+let p = new Person("Filip", 66476);
+console.log(p);
+
+let greeting = p.greet();
+console.log(greeting);
+
+
+
+for (var i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+// while, repet-while
+let values = [2,4,6,8];
+console.log(values);
+
+values[0] = 3;
+console.log(values); // [3, 4, 6, 8]
+
+values.push(9);
+console.log(values); // [3, 4, 6, 8, 9]
+
+// shift, unshift, pop
+
+values.shift();
+console.log(values); //  [4, 6, 8, 9]
+
+values.unshift(2);
+console.log(values); // [2, 4, 6, 8, 9]
+
+values.pop();
+console.log(values); // [2, 4, 6, 8]
+
+alert("Hello");
+
+</script>

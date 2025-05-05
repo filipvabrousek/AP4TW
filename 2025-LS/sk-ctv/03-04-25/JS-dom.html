@@ -1,0 +1,30 @@
+<h1>Hello</h1>
+
+<button>Hello</button>
+<script>
+let heading = document.querySelector("h1");
+heading.innerText = "Test";
+heading.innerHTML = "Hello <i>Hello</i>";
+heading.style.color = "green";
+
+
+
+let btn = document.querySelector("button");
+btn.addEventListener("click", ()=> {
+alert("Hello");
+heading.style.color = "orange";
+});
+
+
+
+
+setInterval(() => {
+
+  let d = new Date();
+  heading.innerHTML = d;
+
+}, 500);
+
+
+
+</script>
