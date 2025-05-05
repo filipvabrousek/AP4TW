@@ -1,0 +1,53 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <title>Columns</title>
+</head>
+
+<body>
+
+    <style>
+        .col {
+            border: 1px solid black;
+        }
+
+        .row div {
+            border: 1px solid black;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+  
+
+
+<!---12 column layout--->
+<!------>
+<div class="row">
+    <div class="col">First</div>
+    <div class="col">Second</div>
+    <div class="col">Third</div>
+</div>
+
+
+
+<!---12 column layout--->
+<!---sm = 576-767px   25%--->
+<!---lg = 768-992px   25%--->
+<div class="row green">
+    <div class="col-sm-3 col-lg-6">First</div>
+    <div class="col-sm-3 col-lg-6">Second</div>
+    <div class="col-sm-3 col-lg-6">Third</div>
+    <div class="col-sm-3 col-lg-6">Fourth</div>
+</div>
+
+
+
+<h1 class="fw-semibold">This is title</h1>
+<p class="lh-sm font-monospace text-decoration-underline">his is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+
+</body>
+
+
+<!--tailwindcss.com-->
