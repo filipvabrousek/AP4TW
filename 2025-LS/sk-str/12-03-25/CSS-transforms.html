@@ -1,0 +1,46 @@
+<div class="green"></div>
+
+<div class="orange"></div>
+
+
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.green {
+    width: 300px;
+    height: 300px;
+    margin: 1rem;
+    background: green;
+    transform: translate(120px,90px);
+    transform: translate(120px);
+    transform: scale(1.4);
+    transform: rotateX(45deg);
+    transform: skewX(20deg);
+}
+
+
+.orange {
+    width: 300px;
+    height: 300px;
+    margin: 1rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, green, orange, yellow);
+    background: radial-gradient(orange, green, yellow);
+    box-shadow: 20px 20px 21px #000;
+}
+
+.orange:hover {
+   /* transform: scale(2.5);*/
+    transition: all 3s;
+    background: radial-gradient(yellow, orange, green);
+    width: 400px;
+}
+
+body {
+    background: rgb(78, 78, 78);
+}
+</style>
