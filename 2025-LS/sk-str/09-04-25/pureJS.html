@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js CDN App</title>
+  <!-- Include Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.45/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <h1>Pure JS</h1>
+  <h3>Counter is </h3>
+  <button id="btn">Increase</button>
+
+<script>
+let h1 = document.querySelector("h1");
+let h3 = document.querySelector("h3");
+let btn = document.querySelector("button");
+
+let counter = 0;
+
+btn.addEventListener("click", () => {
+  counter++;
+  h3.innerText = "Counter is " + counter;
+});
+
+
+
+
+
+
+</script>
+  </body>
+

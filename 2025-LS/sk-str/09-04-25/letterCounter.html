@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js CDN App</title>
+  <!-- Include Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.45/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+ 
+ 
+
+<div id="app">
+  <h1 class="text-3xl text-indigo-600 m-4 ">Tasks</h1>
+
+ <input 
+ class="border-indigo-400 border-b-4"
+ type="text" 
+ v-model="newTask" 
+ @keyup="addTask"/>
+
+  <button @click="addTask" class="px-4 m-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-sky-300 transition duration-800">Add item</button>
+<h3>Text length {{ size }}</h3>
+
+
+<h3 v-if="tooLong">Text is too long</h3>
+
+
+
+<!---
+<h3>{{ newTask }}</h3>
+<h3>{{ newTask }}</h3>
+<h3>{{ newTask }}</h3>
+---->
+
+</div>
+
+
+  <script>
+   const {createApp, ref} = Vue;
+
+   createApp({
+    setup(){
+      const newTask = ref("");
+      const tasks = ref([]);
+
+      let size = ref(0);
+
+      let tooLong = ref(false);
+
+      const addTask = () => {
+    // alert(newTask.value.length);
+      size.value = newTask.value.length;
+
+
+      if (newTask.value.length > 10) {
+        tooLong.value = true;
+      } else {
+        tooLong.value = false;
+      }
+      }
+
+      return {newTask, tasks, size, tooLong, addTask}
+    }
+
+
+
+   }).mount("#app")
+   
+  </script>
+
+
+</body>
+</html>
