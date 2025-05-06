@@ -1,0 +1,64 @@
+<script>
+
+const now = Temporal.Now.zonedDateTimeISO();
+console.log(now);
+// Temporal.ZonedDateTime
+// 2025-05-06T13:28:01.839+02:00
+// [Europe/Prague]
+
+
+const wwdc = now.add({
+    days: 34, 
+    hours: 5,
+    minutes: 1,
+    seconds: 1
+});
+console.log(wwdc);
+
+
+const time = Temporal.Now.instant();
+console.log(time);
+// 2025-05-06T11:40:06.237Z
+
+
+// difference
+const past = Temporal.PlainDateTime.from("2025-05-06T11:40:06");
+
+const current = Temporal.PlainDateTime.from("2025-05-06T13:41:08");
+
+const diff = past.since(current);
+console.log(diff.toString());
+// -PT2H1M2S
+function formatDuration(duration) {
+    // Match the ISO 8601 duration components
+    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+
+    if (!match) return "Invalid duration format";
+
+    const hours = match[1] ? `${match[1]} hour${match[1] > 1 ? "s" : ""}` : null;
+    const minutes = match[2] ? `${match[2]} minute${match[2] > 1 ? "s" : ""}` : null;
+    const seconds = match[3] ? `${match[3]} second${match[3] > 1 ? "s" : ""}` : null;
+
+    // Filter out null values and join with commas
+
+    let isPast = duration.startsWith("-");
+
+    let res = `${isPast ? "-" : "in"}`;
+    res += [hours, minutes, seconds].filter(Boolean).join(", ");
+    return res;
+}
+
+const result = formatDuration(diff.toString());
+console.log(result);
+
+
+
+
+
+let date = Date.now();
+console.log(date); 
+// 17465309603371746530960337
+
+
+
+</script>
